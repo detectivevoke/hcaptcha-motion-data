@@ -36,15 +36,13 @@ If this gets changed, the points will have to be inputted manually.
 
 ## Current Problems
 
-Currently, within topLevel.py, "wn-mp", "xy-mp", "mm-mp", "mu-mp" do not get changed from 0, as I do not know how they are generated.
-
 A useragent is generated in main.py, and the gen has to use that useragent, otherwise it will get flagged. It only generates a Chrome useragent, as that is what the topLevel.py payload is set to.
 
 The "box" created in Bezier.py, _box(), is shifted by one pixel, which doesnt change anything, just makes the box uneven, but will not flag the data.
 
 Fairly slow, in comparrison to what it could be, as its generating thousands of possible coordinates into 2d arrays.
 
-
+Unable to change useragent, working on it, able to input your own.
 
 
 
