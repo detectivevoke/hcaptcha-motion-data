@@ -1,7 +1,3 @@
-
-# HCaptcha Motion Data Generator
-
-
 # HCaptcha Motion Data Generator
 
 
