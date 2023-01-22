@@ -75,10 +75,8 @@ class DV():
 
 
 
-"""print(DV()._bypassconv([
+print(DV()._bypassconv([
     [0,0],
     [100,100],
     [200,200]
-]))"""
-
-DV().fun()
+]))
