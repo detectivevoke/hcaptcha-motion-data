@@ -45,6 +45,12 @@ Fairly slow, in comparrison to what it could be, as its generating thousands of 
 Unable to change useragent, working on it, able to input your own.
 
 
+## Update 1 
+
+Changed topLayer.py to actually make the payload correct
+Checking out what is flagging the data itself
+Changed st to be the timestamp, not a randint
+
 
 If anything else needs explaining, please DM @ Detective Voke#9720
 
