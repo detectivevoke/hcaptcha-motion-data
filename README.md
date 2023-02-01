@@ -48,9 +48,8 @@ Unable to change useragent, working on it, able to input your own.
 ## Update 1 
 
 Changed topLayer.py to actually make the payload correct
-Checking out what is flagging the data itself
-Changed st to be the timestamp, not a randint
-
+Timestamps now are correct, giving a default of 20 seconds to move the mouse to all the curves, to make it look more realistic, as it used to simply move within milliseconds of each point, so it is now more realistic
+Moved most motion data creation itself into timeStamp.py
 
 If anything else needs explaining, please DM @ Detective Voke#9720
 
