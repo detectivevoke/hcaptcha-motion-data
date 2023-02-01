@@ -1,4 +1,4 @@
-from modules import topLevel, UserAgent, motionData, Bezier, hCaptcha
+from modules import topLevel, UserAgent, motionData, Bezier, hCaptcha, timeStamp
 import numpy as np
 import random
 
@@ -26,7 +26,8 @@ class DV():
 
     def complete_motion_data(self, curve_movement:list=[]):
         mot = motionData.Motion()
-        data = mot.generate(data=curve_movement)
+        ts = timeStamp.Time(xy=curve_movement)
+        data = ts.main()
         """{
             "ts": self.ts,
             "te": self.te,
@@ -37,12 +38,15 @@ class DV():
         t = topLevel.topLevel()
         t.agentMod(self.useragent)
         t.dataMod(data)
-        r = mot.create(topLevel=t.t, keyboard=False, HCAPLMAO=False)
+        r = mot.create(topLevel=t.t, keyboard=False, HCAPLMAO=False, data=data)
         return r
 
     def rand_pts(self, pt_am:int=3):
-        return np.random.rand(pt_am,2)*200
-    
+        n = []
+        for x in range(pt_am):
+            n.append([round(random.random()*200),round(random.random()*200)])
+        return n
+
     def main(self, images, answers):
         hcap = hCaptcha.CapH(
             images=images,

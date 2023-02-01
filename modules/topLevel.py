@@ -86,12 +86,11 @@ class topLevel():
         self.t["nv"]["appCodeName"] = str(ua).split("/")[0]
         self.t["nv"]["appVersion"] = str(ua)[8:12]
         self.t["nv"]["userAgent"] = str(ua)
-
         return True
             
     def dataMod(self, data:dict={}):
         self.t["wn"] = [[1920, 1080, 1, int(time.time()) - 5]]
-        #self.t["nv"]["xy"] = [[0, 0, 1, int(time.time()) - 5]]
+        self.t["nv"]["xy"] = [[0, 0, 1, int(time.time()) - 5]]
         self.t["st"] = int(time.time())
         try:
             self.t["mm"] = data["mm"]

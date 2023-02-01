@@ -3,12 +3,7 @@ import time
 import random
 class Motion():
     def __init__(self):
-        self.ts = []
-        self.te = []
-        self.mm = []
-        self.md = []
         self.kd = []
-        self.mu = []
         self.timestamps = []
         self.av_timesamp = 0
 
@@ -19,48 +14,6 @@ class Motion():
         }
 
         self.keyboard = {'0': '48', '1': '49', '2': '50', '3': '51', '4': '52', '5': '53', '6': '54', '7': '55', '8': '56', '9': '57', 'A': '65', 'B': '66', 'C': '67', 'D': '68', 'E': '69', 'F': '70', 'G': '71', 'H': '72', 'I': '73', 'J': '74', 'K': '75', 'L': '76', 'M': '77', 'N': '78', 'O': '79', 'P': '80', 'Q': '81', 'R': '82', 'S': '83', 'T': '84', 'U': '85', 'V': '86', 'W': '87', 'X': '88', 'Y': '89', 'Z': '90'}
-
-    def timest(self, y:int=0 ,n:int=20000):
-        return int(int(time.time()) + n + y * 900)
-
-    def generate(self, data:list=[]):
-        for x, i in data:
-            ts = self.timest(y=i, n=19900)
-            self.ts.append(
-                [[0, x], ts] # 19900 
-            )
-            
-            ts = self.timest(y=i, n=19990)
-            self.te.append(
-                [[0,x], self.timest(y=i, n=19990)] # 19990 
-            )
-
-            ts = self.timest(y=i)
-            self.timestamps.append(ts)
-            self.mm.append(
-                [round(x), round(i) ,self.timest(y=i, n=20000)]
-            )
-
-            ts = self.timest(y=i, n=20002)
-            self.md.append(
-                [round(x), round(i) ,self.timest(y=i, n=20002)] # 20002 
-            )
-
-            ts = self.timest(y=i, n=20004)
-            self.mu.append(
-                [round(x), round(i) , self.timest(y=i, n=20004)] # 20004 
-            )
-        
-        self.av_timesamp = self.av_ts()
-
-        return {
-            "ts": self.ts,
-            "te": self.te,
-            "mm": self.mm,
-            "md": self.md,
-            "mu": self.mu,
-            "ts-mp": self.av_timesamp
-        }
 
     def f_hcap(self):
         x = "FUCKHCAPTCHALMFAO"
@@ -94,20 +47,18 @@ class Motion():
             timestamp = ((ts-y*900)- 20000)
             print(datetime.fromtimestamp(timestamp/1000))
 
-    def create(self, topLevel:dict={}, keyboard:bool=False, HCAPLMAO:bool=False):
+    def create(self, topLevel:dict={}, keyboard:bool=False, HCAPLMAO:bool=False, data:dict={}):
 
-        
-
-        self.motiondata["mm"] = self.mm
+        self.motiondata["mm"] = data["mm"]
         self.motiondata["topLevel"] = topLevel
         
-        self.motiondata["mm-mp"] = self.av_timesamp/100
+        self.motiondata["mm-mp"] = data["ts-mp"]
         
-        self.motiondata["md"] = self.md
-        self.motiondata["md-mp"] = (self.av_timesamp + random.randint(1,100)/100) * random.randint(4,6) 
+        self.motiondata["md"] = data["md"]
+        self.motiondata["md-mp"] = round(((self.av_timesamp + random.randint(1,100)/100) * random.randint(4,6))*100)
 
-        self.motiondata["mu"] = self.mu
-        self.motiondata["mu-mp"] = (self.av_timesamp + random.randint(1,100)/100) * random.randint(4,6)
+        self.motiondata["mu"] = data["mu"]
+        self.motiondata["mu-mp"] = round(((self.av_timesamp + random.randint(1,100)/100) * random.randint(4,6))*100)
 
         if keyboard:
             self.motiondata["kd"] = self.kb()
