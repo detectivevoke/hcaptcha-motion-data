@@ -37,7 +37,7 @@ class DV():
         t = topLevel.topLevel()
         t.agentMod(self.useragent)
         t.dataMod(data)
-        r = mot.create(topLevel=t._top, keyboard=False, HCAPLMAO=False)
+        r = mot.create(topLevel=t.t, keyboard=False, HCAPLMAO=False)
         return r
 
     def rand_pts(self, pt_am:int=3):
@@ -73,10 +73,12 @@ class DV():
         
 
 
+def random_user():
+    return UserAgent.FakeUserAgent(browsers=["chrome"]).random
 
-
-print(DV()._bypassconv([
+print(
+DV()._bypassconv(points=[
     [0,0],
     [100,100],
-    [200,200]
+    [250,300]
 ]))

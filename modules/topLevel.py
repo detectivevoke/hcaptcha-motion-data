@@ -80,10 +80,10 @@ class topLevel():
                     "wn-mp": 0,
                     "mm": [],
                     "mm-mp": 0,
-                    "v": 1},
+                    "v": 1}
 
     def agentMod(self, ua:str=None):
-        #self.t["nv"]["appCodeName"] = str(ua).split("/")[0]
+        self.t["nv"]["appCodeName"] = str(ua).split("/")[0]
         self.t["nv"]["appVersion"] = str(ua)[8:12]
         self.t["nv"]["userAgent"] = str(ua)
 

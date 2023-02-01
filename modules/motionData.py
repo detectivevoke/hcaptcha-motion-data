@@ -29,7 +29,7 @@ class Motion():
             self.ts.append(
                 [[0, x], ts] # 19900 
             )
-
+            
             ts = self.timest(y=i, n=19990)
             self.te.append(
                 [[0,x], self.timest(y=i, n=19990)] # 19990 
