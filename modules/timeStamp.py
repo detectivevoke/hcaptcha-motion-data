@@ -5,7 +5,7 @@ from itertools import islice
 
 
 class Time():
-    def __init__(self, rnge:int=3, xy:list=[]):
+    def __init__(self, rnge:int=20, xy:list=[]):
         self.current_timestamp = time.time()
         self.timestamps = []
         for i in range(rnge):

@@ -53,11 +53,11 @@ class DV():
             answers=answers
         )
         points = hcap._convert()
-        self.create_curves(points=points,am=20)
+        self.create_curves(points=points,am=60)
         return str(self.complete_motion_data(self.pfmd)).replace("'",'"')
 
     def _bypassconv(self, points):
-        self.create_curves(points=points,am=20)
+        self.create_curves(points=points,am=60)
         return str(self.complete_motion_data(self.pfmd)).replace("'",'"')
 
     def fun(self):
